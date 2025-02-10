@@ -1,4 +1,4 @@
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, recall_score, precision_score
 from xgboost import XGBRegressor
 import pandas as pd
 
@@ -37,3 +37,9 @@ predictions_binary = [1 if p > 0.5 else 0 for p in pred_values]
 
 accuracy = accuracy_score(test_dataset[target_column_name].to_numpy(), predictions_binary)
 print(accuracy)
+
+recall = recall_score(test_dataset[target_column_name].to_numpy(), predictions_binary)
+print(recall)
+
+precision = precision_score(test_dataset[target_column_name].to_numpy(), predictions_binary)
+print(precision)
